@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "322346158301",
+    "firebase_url": "https://the-student-hub.firebaseio.com",
+    "project_id": "the-student-hub",
+    "storage_bucket": "the-student-hub.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:322346158301:android:54f70afad898b073b47334",
+        "android_client_info": {
+          "package_name": "com.example.TSH"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "322346158301-vfsemu1dhdp4dnas1kfhpig8c3o2j6iu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.TSH",
+            "certificate_hash": "06020d188ca6ca9ada7f275b9b8d7c6d5444ef62"
+          }
+        },
+        {
+          "client_id": "322346158301-gre9j1melpn3faa33aognb1pe1q9572b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbbwvSciKl-Zwc5_dWooKY4EiWN7lX53Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "322346158301-gre9j1melpn3faa33aognb1pe1q9572b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
