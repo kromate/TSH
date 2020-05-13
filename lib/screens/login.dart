@@ -1,9 +1,13 @@
+import 'package:TSH/screens/navigation_home_screen.dart';
+import 'package:TSH/utils&widget/auth.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:TSH/utils&widget/utils.dart';
 import 'package:TSH/utils&widget/widgets.dart';
-import 'package:TSH/screens/quiz.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
 
 import 'forgotpass.dart';
 //import 'page_home.dart';
@@ -149,9 +153,16 @@ class _LoginPageState extends State<LoginPage> {
           style: TextStyle(fontFamily: 'Exo2',color: Colors.white, fontSize: 20.0),
         ),
         color: colorCurve,
-        onPressed: () {
+        onPressed: () async {
           // Going to DashBoard
-          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
+          if (_emailController.text.isEmpty || _passwordController.text.isEmpty){
+            print('fill the boxes'); 
+          }
+          bool res = await AuthProvider().signInWithEmail(_emailController.text, _passwordController.text);
+          if (!res){
+            print('login failed');
+          }
+        //  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NavigationHomeScreen()));
         },
       ),
     );
@@ -162,18 +173,18 @@ class _LoginPageState extends State<LoginPage> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
 
-        socialCircleAvatar("assets/icons/icnfb.png",(){}),
+        socialCircleAvatar("Asset/icnfb.png",(){}),
         SizedBox(width: size.getWidthPx(18)),
-        socialCircleAvatar("assets/icons/icn_twitter.png",(){}),
+        socialCircleAvatar("Asset/icn_twitter.png",(){}),
         SizedBox(width: size.getWidthPx(18)),
-        socialCircleAvatar("assets/icons/icngmail.png",(){}),
+        socialCircleAvatar("Asset/icngmail.png",(){}),
       ],
     );
   }
 
   GestureDetector socialCircleAvatar(String assetIcon,VoidCallback onTap) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: (){},
       child: CircleAvatar(
 
         maxRadius: size.getWidthPx(24),

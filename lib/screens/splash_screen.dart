@@ -1,37 +1,62 @@
+import 'package:TSH/screens/navigation_home_screen.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:TSH/screens/login.dart';
 
-class splash_screen extends StatefulWidget {
+class Splash_Screen extends StatefulWidget {
   @override
-  _splash_screenState createState() => _splash_screenState();
+  _Splash_ScreenState createState() => _Splash_ScreenState();
 }
 
-class _splash_screenState extends State<splash_screen> {
+class _Splash_ScreenState extends State<Splash_Screen> {
 
-  @override
-  void initState() {
+  // @override
+  // void initState() {
 
-    super.initState();
-    Future.delayed(
-      Duration(seconds: 3),
-      (){
-        Navigator.push(context, MaterialPageRoute(builder: (context)=> LoginPage(),
-        )
-        );
-      }
-    );
-  }
+  //   super.initState();
+  //   Future.delayed(
+  //     Duration(seconds: 2),
+  //     (){
+  //       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> LoginPage(),
+  //       )
+  //       );
+  //     }
+  //   );
+  // }
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.deepPurple[300],
-      body: Center(child: Container(child: Image(image: AssetImage('Asset/splash.png',), ), width: 300, height: 200,
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children:<Widget>[ Container(child: Image(image: AssetImage('Asset/splash.png',), ), width: 400, height: 300, 
       ),
-      ),
+      CircularProgressIndicator(backgroundColor: Colors.white,)
+      ]),
       
     );
   }
 }
+
+
+
+class MainScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return StreamBuilder(
+      stream: FirebaseAuth.instance.onAuthStateChanged,
+      builder: (context, AsyncSnapshot<FirebaseUser> snapshot){
+        if(snapshot.connectionState == ConnectionState.waiting)
+          return Splash_Screen();
+        if(!snapshot.hasData || snapshot.hasData == null)
+          return LoginPage();
+        return NavigationHomeScreen();
+        
+      }
+    );
+  }
+}
+

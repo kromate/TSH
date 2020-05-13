@@ -97,7 +97,7 @@ class _PageForgotPasswordState extends State<PageForgotPassword> {
   CircleAvatar _passwordIconWidget() {
     return CircleAvatar(
       maxRadius: size.getWidthPx(82),
-      child: Image.asset("assets/icons/imgforgot.png"),
+      child: Image.asset("Asset/imgforgot.png"),
       backgroundColor: colorCurve,
     );
   }
