@@ -9,6 +9,6 @@ below are the available screens
 
 
 
-![Login Page](./img/tshlogin)
-![Drawer](./img/tshdrawer)
-![chat Page](./img/tshchat)
+![Login Page](./img/tshlogin.png)
+![Drawer](./img/tshdrawer.png)
+![chat Page](./img/tshchat.png)
